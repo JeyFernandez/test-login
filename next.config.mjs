@@ -31,8 +31,10 @@ const nextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: `default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: res.cloudinary.com; connect-src 'self'; media-src 'self'; object-src 'none'; frame-src 'none';`,
-          },
+            value: `default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: res.cloudinary.com; connect-src 'self' http://localhost:3001; media-src 'self'; object-src 'none'; frame-src 'none';`,
+          }
+          
+          
         ],
       },
     ];

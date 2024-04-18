@@ -1,17 +1,26 @@
 "use client";
+import fetchData from "@/server/server";
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import UserAuth from "../../../interface/authUser.interface";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log("Email:", email);
-    console.log("Contraseña:", password);
+    const user: UserAuth = {
+      email: email,
+      password: password,
+    };
+    const data = await fetchData({
+      url: "http://localhost:3001/auth/login",
+      method: "POST",
+      body: user,
+    });
+    console.log(data);
   };
-
   return (
     <div className="container">
       <div

@@ -1,3 +1,5 @@
+import GetUser from "./tables/getUser";
+
 export default function Page() {
-  return <h1>Dashborad page</h1>;
+  return <GetUser />;
 }
