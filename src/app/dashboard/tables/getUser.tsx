@@ -1,15 +1,8 @@
 "use client";
+import User from "@/interface/user.interface";
+import fetchData from "@/server/server";
 import { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
-interface User {
-  id: number;
-  name: string;
-  email: string;
-  password: string;
-  telefono: string;
-  isActive: boolean;
-  roles: string[];
-}
 
 function GetUser() {
   const [users, setUsers] = useState<User[]>([]);
@@ -17,15 +10,17 @@ function GetUser() {
   const [isLoading, setIsLoading] = useState(true);
 
   async function getUsers() {
-    const response = await fetch("/api/user", {
-      method: "GET",
-    });
-    const responseData = await response.json();
-    console.log(responseData);
-    setUsers(responseData);
-    setIsLoading(false);
+    try {
+      const data = await fetchData({
+        url: "/api/user",
+        method: "GET",
+      });
 
-    return responseData;
+      setUsers(data);
+      setIsLoading(false);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   useEffect(() => {

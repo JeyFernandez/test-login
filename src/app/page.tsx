@@ -36,7 +36,7 @@ function WelcomePage() {
           implementar un sistema de autenticación con React y TypeScript.
         </p>
 
-        <Button variant="primary" href="#" className="ml-3">
+        <Button variant="primary" href="/auth/sign-in" className="ml-3">
           Iniciar sesión
         </Button>
       </div>
