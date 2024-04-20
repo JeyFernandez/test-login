@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../public/logo.png";
+import Logo from "@/assets/icons/logo.png";
 import Image from "next/image";
 import { Button } from "react-bootstrap";
 function WelcomePage() {

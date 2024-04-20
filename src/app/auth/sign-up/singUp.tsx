@@ -9,8 +9,8 @@ import Logo_google from "@/assets/icons/google.png";
 import Password from "@/assets/icons/security.svg";
 import User from "@/assets/icons/user.svg";
 import Doctora from "@/assets/img/doctora.png";
-import "../../style/login.css";
-export default function SignIn() {
+import "../../style/login2.css";
+export default function SingUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -66,6 +66,28 @@ export default function SignIn() {
                 required
               />
             </div>
+            <div className="form-group">
+              <Image src={Password} alt="icon" className="user-icon" />
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <Image src={Password} alt="icon" className="user-icon" />
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
             <button type="submit">Login Now</button>
 
             <div className="other-option">
@@ -100,7 +122,7 @@ export default function SignIn() {
             </p>
           </div>
           <div className="button-card">
-            <a href="/auth/sign-up">Sign Up</a>
+            <a href="/auth/sign-in">Sign In</a>
             <div className="container-img">
               <Image src={Doctora} alt="doctora" className="doc-image" />
             </div>
