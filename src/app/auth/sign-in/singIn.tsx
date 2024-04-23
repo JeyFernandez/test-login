@@ -4,7 +4,6 @@ import fetchData from "@/server/server";
 import UserAuth from "@/interface/authUser.interface";
 import Image from "next/image";
 
-import Logo_facebook from "@/assets/icons/facebook_icon.svg";
 import Logo_google from "@/assets/icons/google.png";
 import Password from "@/assets/icons/security.svg";
 import User from "@/assets/icons/user.svg";
@@ -37,11 +36,28 @@ export default function SignIn() {
 
   return (
     <div className="login-container">
+      <div className="presentation">
+        <div className="cards">
+          <div>
+            <h2>EBEN-EZER</h2>
+            <p>Agenda tu cita con nosotros y recibe la mejor atención médica</p>
+          </div>
+          <div className="button-card">
+            <div className="container-img">
+              <Image src={Doctora} alt="doctora" className="doc-image" />
+            </div>
+            <div className="btn-signup">
+              <a href="/auth/sign-up">Sign Up</a>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="container-form">
         <form onSubmit={handleLogin} className="login-form">
-          <h2>LOGIN</h2>
+          <h2>INICIAR SESION</h2>
           <p>
-            Please enter your email and password to log in. If you don't have
+            Por favor ingrese su correo electrónico y contraseña para iniciar
+            sesión.
           </p>
           <div className="inputs">
             <div className="form-group">
@@ -49,7 +65,7 @@ export default function SignIn() {
               <input
                 type="email"
                 className="form-control"
-                placeholder="Email"
+                placeholder="correo electrónico"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -60,52 +76,24 @@ export default function SignIn() {
               <input
                 type="password"
                 className="form-control"
-                placeholder="Password"
+                placeholder="contraseña"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
-            <button type="submit">Login Now</button>
+            <button type="submit">Iniciar Sesión</button>
 
             <div className="other-option">
               <div className="google">
                 <Image src={Logo_google} alt="Google" className="google-logo" />
                 <a href="https://accounts.google.com/" type="button">
-                  Login with Google
-                </a>
-              </div>
-              <div className="facebook">
-                <Image
-                  src={Logo_facebook}
-                  alt="Facebook"
-                  className="facebook-logo"
-                />
-                <a href="#" type="button">
-                  Login with Facebook
+                  Iniciar sesión con Google
                 </a>
               </div>
             </div>
           </div>
         </form>
-      </div>
-      <div className="presentation">
-        <div className="cards">
-          <div>
-            <h2>SICEM</h2>
-            <p>
-              CONSULTORIO
-              <br />
-              MÉDICO
-            </p>
-          </div>
-          <div className="button-card">
-            <a href="/auth/sign-up">Sign Up</a>
-            <div className="container-img">
-              <Image src={Doctora} alt="doctora" className="doc-image" />
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

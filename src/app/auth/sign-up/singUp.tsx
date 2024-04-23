@@ -1,29 +1,38 @@
 "use client";
 import React, { useState } from "react";
 import fetchData from "@/server/server";
-import UserAuth from "@/interface/authUser.interface";
+import UserInterface from "@/interface/user.interface";
 import Image from "next/image";
 
 import Logo_facebook from "@/assets/icons/facebook_icon.svg";
 import Logo_google from "@/assets/icons/google.png";
 import Password from "@/assets/icons/security.svg";
+import Mail from "@/assets/icons/mail.svg";
+import Phone from "@/assets/icons/phone.svg";
 import User from "@/assets/icons/user.svg";
 import Doctora from "@/assets/img/doctora.png";
 import "../../style/login2.css";
 export default function SingUp() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [telefono, setTelefono] = useState("");
+  const [isActive, setIsActive] = useState(true);
 
   const handleLogin = (e: any) => {
     e.preventDefault();
 
-    const user: UserAuth = {
+    const user: UserInterface = {
+      id: 0,
+      name,
       email,
       password,
+      telefono,
+      isActive,
     };
 
     fetchData({
-      url: "/api/auth/login",
+      url: "/api/user",
       method: "POST",
       body: user,
     })
@@ -37,6 +46,22 @@ export default function SingUp() {
 
   return (
     <div className="login-container">
+      <div className="presentation">
+        <div className="cards">
+          <div>
+            <h2>EBEN-EZER</h2>
+            <p>Agenda tu cita con nosotros y recibe la mejor atención médica</p>
+          </div>
+          <div className="button-card">
+            <div className="container-img">
+              <Image src={Doctora} alt="doctora" className="doc-image" />
+            </div>
+            <div className="btn-signup">
+              <a href="/auth/sign-in">Sign In</a>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="container-form">
         <form onSubmit={handleLogin} className="login-form">
           <h2>LOGIN</h2>
@@ -46,6 +71,17 @@ export default function SingUp() {
           <div className="inputs">
             <div className="form-group">
               <Image src={User} alt="icon" className="user-icon" />
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Nombre"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <Image src={Mail} alt="icon" className="user-icon" width={28} />
               <input
                 type="email"
                 className="form-control"
@@ -67,24 +103,13 @@ export default function SingUp() {
               />
             </div>
             <div className="form-group">
-              <Image src={Password} alt="icon" className="user-icon" />
+              <Image src={Phone} alt="icon" className="user-icon" />
               <input
-                type="password"
+                type="text"
                 className="form-control"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <Image src={Password} alt="icon" className="user-icon" />
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Telefono"
+                value={telefono}
+                onChange={(e) => setTelefono(e.target.value)}
                 required
               />
             </div>
@@ -97,37 +122,9 @@ export default function SingUp() {
                   Login with Google
                 </a>
               </div>
-              <div className="facebook">
-                <Image
-                  src={Logo_facebook}
-                  alt="Facebook"
-                  className="facebook-logo"
-                />
-                <a href="#" type="button">
-                  Login with Facebook
-                </a>
-              </div>
             </div>
           </div>
         </form>
-      </div>
-      <div className="presentation">
-        <div className="cards">
-          <div>
-            <h2>SICEM</h2>
-            <p>
-              CONSULTORIO
-              <br />
-              MÉDICO
-            </p>
-          </div>
-          <div className="button-card">
-            <a href="/auth/sign-in">Sign In</a>
-            <div className="container-img">
-              <Image src={Doctora} alt="doctora" className="doc-image" />
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
