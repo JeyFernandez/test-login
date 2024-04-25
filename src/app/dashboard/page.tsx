@@ -1,6 +1,9 @@
-import UserTable from "./tables/getUser";
-import GetUser from "./tables/getUser";
-
+import React from "react";
+import Dashboard from "./dashboard";
 export default function Page() {
-  return <UserTable />;
+  return (
+    <div>
+      <Dashboard children />
+    </div>
+  );
 }

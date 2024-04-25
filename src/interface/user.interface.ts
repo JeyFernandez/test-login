@@ -5,5 +5,10 @@ export default interface UserInterface {
   password: string;
   telefono: string;
   isActive: boolean;
-  roles?: string[];
+  roles?: [
+    {
+      id: number;
+      rol: string;
+    }
+  ];
 }
