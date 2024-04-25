@@ -1,9 +1,13 @@
+// Dashboard.js
 import React from "react";
-import Dashboard from "./dashboard";
-export default function Page() {
+
+const Dashboard = () => {
   return (
     <div>
-      <Dashboard children />
+      <h1 className="text-4xl font-bold">Dashboard</h1>
+      {/* Contenido del dashboard */}
     </div>
   );
-}
+};
+
+export default Dashboard;
