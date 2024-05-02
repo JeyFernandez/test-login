@@ -1,6 +1,6 @@
 //componets to user administrations
 import React from "react";
-import GetUser from "../../dashboard/tables/getUser";
+import GetUser from "../../../components/tables/getUser";
 function page() {
   return (
     <div>

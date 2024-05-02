@@ -1,8 +1,9 @@
 import SignIn from "./auth/sign-in/singIn";
+import Home from "./page/home/home";
 function WelcomePage() {
   return (
     <div>
-      <SignIn />
+      <Home />
     </div>
   );
 }
